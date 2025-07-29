@@ -4,7 +4,6 @@ const mongoose=require('mongoose')
 const bodyParser=require('body-parser')
 const cookieparser=require('cookie-parser')
 require('dotenv').config();
-const host='0.0.0.0';
 const port=8080;
 const cors=require('cors');
 
@@ -28,7 +27,7 @@ app.get('/',(req,res)=>{
 
 })
 
-app.listen(port,host,()=>{
+app.listen(port,()=>{
     console.log(`port ${port} is working fine`)
 })
 
