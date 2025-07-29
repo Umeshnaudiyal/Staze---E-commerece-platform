@@ -3,9 +3,7 @@ const mongoose=require('mongoose');
 const mongoAtlasUri=process.env.atlasUrl;
 const connectmongoDB = async () => {
   try {
-    const conn = await mongoose.connect(mongoAtlasUri, {
-      useNewUrlParser: true,
-    });
+    const conn = await mongoose.connect(mongoAtlasUri, {});
     console.log(`MongoDB Connected`);
   } catch (error) {
     console.error(error.message);
