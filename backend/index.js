@@ -5,7 +5,7 @@ const bodyParser=require('body-parser')
 const cookieparser=require('cookie-parser')
 require('dotenv').config();
 const host='0.0.0.0';
-const port=process.env.port || 3000;
+const port=8080;
 const cors=require('cors');
 
 
