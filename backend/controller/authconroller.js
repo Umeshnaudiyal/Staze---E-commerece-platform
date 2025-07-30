@@ -5,14 +5,14 @@ const bcrypt=require("bcrypt")
 
 const signup=async (req,res)=>{
     try{  
-        const {firstname,lastname,email,password}=req.body;
+        const {firstname,lastname,email,password,address}=req.body;
         const user=await Usermodel.findOne( {email})
         if(user){
             return res.status(409).json({
                 message:'User is already exist , you can login',
                 success:false
             })}
-            const usermodel=new Usermodel({firstname,lastname,email,password});
+            const usermodel=new Usermodel({firstname,lastname,email,password,address});
             usermodel.password=await bcrypt.hash(password,10);
             await usermodel.save();
 
@@ -61,7 +61,9 @@ const login=async (req,res)=>{
                 jwttoken,
                 email,
                 isadmin:user.isadmin,
-                name:user.firstname+user.lastname
+                name:user.firstname+' '+user.lastname,
+                address:user.address
+                
             })
         
      
