@@ -20,6 +20,10 @@ const Userschema=new Schema({
     isadmin:{
         type:String,
         default:false,
+    },   
+    address:{
+        type:String,
+        required:true,
     }
 })
 
